@@ -1,0 +1,7 @@
+[user]
+	email = thibaut.frain@gmail.com
+	name = Thibaut Frain
+[init]
+	DefaultBranch = main
+[push]
+	autoSetupRemote = true
