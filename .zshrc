@@ -17,6 +17,7 @@ zi light zpm-zsh/ls
 
 zi snippet OMZL::git.zsh
 zi snippet OMZP::git
+zi snippet OMZP::nvm
 zi snippet OMZP::docker
 zi snippet OMZP::docker-compose
 zi snippet OMZL::history.zsh
@@ -25,5 +26,6 @@ ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[directory]='none'
 
 eval "$(starship init zsh)"
+source /usr/share/nvm/init-nvm.sh
 
 alias yay="yay --noconfirm"
