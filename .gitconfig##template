@@ -5,5 +5,13 @@
 	DefaultBranch = main
 [push]
 	autoSetupRemote = true
+[pull]
+	rebase = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	algorithm = histogram
+[rerere]
+	enabled = true
 [includeIf "gitdir:~/dev/sw/"]
 	path = ~/dev/sw/.gitconfig
