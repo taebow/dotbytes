@@ -22,6 +22,10 @@ zi snippet OMZP::docker
 zi snippet OMZP::docker-compose
 zi snippet OMZL::history.zsh
 
+setopt auto_cd auto_pushd pushd_ignore_dups
+setopt correct
+setopt extended_glob
+
 ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[directory]='none'
 
