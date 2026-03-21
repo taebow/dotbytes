@@ -6,4 +6,4 @@
 [push]
 	autoSetupRemote = true
 [includeIf "gitdir:~/dev/sw/"]
-	path = /home/th/dev/sw/.gitconfig
+	path = ~/dev/sw/.gitconfig

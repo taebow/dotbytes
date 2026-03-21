@@ -1,0 +1,6 @@
+#!/bin/bash
+if ! rbw unlocked 2>/dev/null; then
+  echo "rbw is locked. Run 'rbw unlock' first." >&2
+  exit 1
+fi
+exec gpg --batch --passphrase-file <(rbw get yadm) "$@"
