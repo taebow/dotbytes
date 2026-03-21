@@ -1,5 +1,5 @@
 [user]
-	email = thibaut.frain@gmail.com
+	email = {{ env.YADM_EMAIL_PERSONAL }}
 	name = Thibaut Frain
 [init]
 	DefaultBranch = main

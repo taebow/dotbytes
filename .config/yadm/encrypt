@@ -1,2 +1,2 @@
 .ssh/*
-dev/sw/.gitconfig
+.config/yadm/secrets.env

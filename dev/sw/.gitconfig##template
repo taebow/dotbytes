@@ -1,0 +1,5 @@
+[user]
+	name = Thibaut Frain
+	email = {{ env.YADM_EMAIL_WORK }}
+[url "git@github-sw:"]
+	insteadOf = git@github.com:
