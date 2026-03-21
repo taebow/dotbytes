@@ -25,6 +25,11 @@ zi snippet OMZL::history.zsh
 ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[directory]='none'
 
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='none'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='none'
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 eval "$(starship init zsh)"
 source /usr/share/nvm/init-nvm.sh
 
