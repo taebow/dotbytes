@@ -39,4 +39,4 @@ source /usr/share/nvm/init-nvm.sh
 
 alias yay="yay --noconfirm"
 export GPG_TTY=$(tty)
-[ -f ~/.config/yadm/secrets.env ] && source ~/.config/yadm/secrets.env
+if [ -f ~/.config/yadm/secrets.env ]; then source ~/.config/yadm/secrets.env; fi
