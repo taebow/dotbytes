@@ -5,3 +5,5 @@
 	DefaultBranch = main
 [push]
 	autoSetupRemote = true
+[includeIf "gitdir:~/dev/sw/"]
+	path = /home/th/dev/sw/.gitconfig
