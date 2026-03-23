@@ -1,0 +1,35 @@
+#!/bin/bash
+yadm decrypt
+source ~/.config/yadm/secrets.env
+yadm alt
+
+# Install yadm hooks
+hooks_dir="$(yadm gitconfig core.hooksPath 2>/dev/null)"
+hooks_dir="${hooks_dir:-$HOME/.local/share/yadm/repo.git/hooks}"
+
+cat > "$hooks_dir/pre-commit" <<'HOOK'
+#!/bin/sh
+dconf dump / > "$HOME/.config/dconf/gnome-settings.ini"
+yadm add "$HOME/.config/dconf/gnome-settings.ini"
+HOOK
+
+cat > "$hooks_dir/post-merge" <<'HOOK'
+#!/bin/sh
+if [ -f "$HOME/.config/dconf/gnome-settings.ini" ]; then
+    dconf load / < "$HOME/.config/dconf/gnome-settings.ini"
+fi
+HOOK
+
+cat > "$hooks_dir/post-checkout" <<'HOOK'
+#!/bin/sh
+if [ -f "$HOME/.config/dconf/gnome-settings.ini" ]; then
+    dconf load / < "$HOME/.config/dconf/gnome-settings.ini"
+fi
+HOOK
+
+chmod +x "$hooks_dir/pre-commit" "$hooks_dir/post-merge" "$hooks_dir/post-checkout"
+
+# Restore GNOME settings
+if [ -f "$HOME/.config/dconf/gnome-settings.ini" ]; then
+    dconf load / < "$HOME/.config/dconf/gnome-settings.ini"
+fi
