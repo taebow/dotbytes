@@ -1,6 +1,4 @@
 #!/bin/bash
-yadm decrypt
-source ~/.config/yadm/secrets.env
 yadm alt
 
 # Install yadm hooks
