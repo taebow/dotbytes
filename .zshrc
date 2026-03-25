@@ -40,3 +40,5 @@ source /usr/share/nvm/init-nvm.sh
 alias yay="yay --noconfirm"
 export GPG_TTY=$(tty)
 if [ -f ~/.config/yadm/secrets.env ]; then source ~/.config/yadm/secrets.env; fi
+
+eval "$(direnv hook zsh)"
