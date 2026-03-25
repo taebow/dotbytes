@@ -29,5 +29,12 @@ chmod +x "$hooks_dir/pre-commit" "$hooks_dir/post-merge" "$hooks_dir/post-checko
 
 # Restore GNOME settings
 if [ -f "$HOME/.config/dconf/gnome-settings.ini" ]; then
-    dconf load / < "$HOME/.config/dconf/gnome-settings.ini"
+    if [ -n "$DBUS_SESSION_BUS_ADDRESS" ]; then
+        dconf load / < "$HOME/.config/dconf/gnome-settings.ini"
+    else
+        tmpdir=$(mktemp -d)
+        cp "$HOME/.config/dconf/gnome-settings.ini" "$tmpdir/user"
+        dconf compile "$HOME/.config/dconf/user" "$tmpdir"
+        rm -rf "$tmpdir"
+    fi
 fi
