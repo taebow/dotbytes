@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+# Unload nvidia modules
+sudo modprobe -r nvidia_uvm
+sudo modprobe -r nvidia_modeset
+sudo modprobe -r nvidia
+
+# Remove PCI device
+echo 1 | sudo tee /sys/bus/pci/devices/0000:64:00.1/remove
+echo 1 | sudo tee /sys/bus/pci/devices/0000:64:00.0/remove
+
+# Disable dGPU at ASUS firmware level
+echo 1 | sudo tee /sys/devices/platform/asus-nb-wmi/dgpu_disable
